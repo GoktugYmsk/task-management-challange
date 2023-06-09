@@ -1,0 +1,17 @@
+.content-topBox {
+    display: flex;
+    width: 600px;
+
+    input {
+        border-radius: 10px;
+        width: 300px;
+    }
+
+    .content-topBox__add-Button {
+        width: 100px;
+    }
+
+    .content-topBox__allDelete-Button {
+        width: 200px;
+    }
+}

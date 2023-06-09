@@ -1,0 +1,11 @@
+.content__altBox {
+    display: flex;
+    width: 600px;
+    height: auto;
+    border-radius: 10px;
+
+
+    .container__altBox-actions {
+        width: 250px !important;
+    }
+}
