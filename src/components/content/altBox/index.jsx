@@ -5,19 +5,24 @@ import { Switch, Space, Modal } from 'antd';
 
 import './index.scss';
 
-function AltBox({ tasks, setTasks }) {
+function AltBox() {
+  const [tasks, setTasks] = useState([
+    { name: 'vero ipsam praesentium', done: true },
+    { name: 'aliquam expedita eos', done: false },
+    { name: 'velit illum quo', done: true },
+  ]);
+
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedTaskIndex, setSelectedTaskIndex] = useState(null);
 
   const handleTaskDoneChange = (index, checked) => {
     const updatedTasks = [...tasks];
-    updatedTasks[index].done = checked;
+    updatedTasks[index] = { ...updatedTasks[index], done: checked };
     setTasks(updatedTasks);
   };
 
   const handleTaskDelete = (index) => {
-    const updatedTasks = [...tasks];
-    updatedTasks.splice(index, 1);
+    const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
     setShowDeleteModal(false);
     setSelectedTaskIndex(null);
@@ -26,10 +31,7 @@ function AltBox({ tasks, setTasks }) {
   const areAllTasksSelected = tasks.length > 0 && tasks.every((task) => task.done);
 
   const handleToggleAllTasks = () => {
-    const updatedTasks = tasks.map((task) => ({
-      ...task,
-      done: !areAllTasksSelected,
-    }));
+    const updatedTasks = tasks.map((task) => ({ ...task, done: !areAllTasksSelected }));
     setTasks(updatedTasks);
   };
 
@@ -69,13 +71,17 @@ function AltBox({ tasks, setTasks }) {
                   type='checkbox'
                   checked={task.done}
                   onChange={(e) => handleTaskDoneChange(index, e.target.checked)}
-                  readOnly
                 />
               </td>
-              <td>{task.name}</td>
+              <td className={`content__altBox-message ${task.done ? 'completed-task' : ''}`}>{task.name}</td>
               <td className='container__altBox-actions'>
                 <Space direction='vertical'>
-                  <Switch checkedChildren='Done' unCheckedChildren='Incomplete' defaultChecked={task.done} />
+                  <Switch
+                    checkedChildren='Done'
+                    unCheckedChildren='Incomplete'
+                    checked={task.done}
+                    onChange={(checked) => handleTaskDoneChange(index, checked)}
+                  />
                 </Space>
                 <Button
                   className='content-delete__button'
