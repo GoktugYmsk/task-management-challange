@@ -8,7 +8,7 @@ function TopBox({tasks,setTasks}) {
   const inputRef = useRef(null);
 
   const handleDeleteSelections = () => {
-    const updatedTasks = tasks.filter((task) => !task.done);
+    const updatedTasks = tasks.filter((task) => !task.tic);
     setTasks(updatedTasks);
   };
 
@@ -19,7 +19,7 @@ function TopBox({tasks,setTasks}) {
   const handleAddTask = () => {
     const newTask = {
       name: inputValue,
-      done: false
+      tic: false
     };
     setTasks([...tasks, newTask]);
     setInputValue('');
@@ -40,7 +40,7 @@ function TopBox({tasks,setTasks}) {
       <Button
         className='content-topBox__allDelete-Button'
         onClick={handleDeleteSelections}
-        disabled={tasks.length === 0 || !tasks.some((task) => task.done)}
+        disabled={tasks.length === 0 || !tasks.some((task) => task.tic)}
       >
         Delete Selections
       </Button>

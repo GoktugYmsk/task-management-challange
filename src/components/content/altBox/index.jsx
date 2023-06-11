@@ -21,6 +21,12 @@ function AltBox() {
     setTasks(updatedTasks);
   };
 
+  const handleTaskOption = (index, ticked) => {
+    const optionTasks = [...tasks];
+    optionTasks[index] = { ...optionTasks[index], done: ticked };
+    setTasks(optionTasks);
+  };
+
   const handleTaskDelete = (index) => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
@@ -69,8 +75,8 @@ function AltBox() {
               <td>
                 <input
                   type='checkbox'
-                  checked={task.done}
-                  onChange={(e) => handleTaskDoneChange(index, e.target.checked)}
+                  checked={task.tic}
+                  onChange={(e) => handleTaskOption(index, e.target.ticked)}
                 />
               </td>
               <td className={`content__altBox-message ${task.done ? 'completed-task' : ''}`}>{task.name}</td>
