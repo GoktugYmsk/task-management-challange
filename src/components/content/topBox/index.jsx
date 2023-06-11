@@ -10,8 +10,8 @@ function TopBox({ tasks, setTasks }) {
   const inputRef = useRef(null);
 
   const handleDeleteSelections = () => {
-    const updatedTasks = tasks.filter((task) => !task.tic);
-    setTasks(updatedTasks);
+    const deleteSelectedTick = tasks.filter((task) => !task.tick);
+    setTasks(deleteSelectedTick);
     setShowConfirmationModal(false);
   };
 
@@ -22,14 +22,14 @@ function TopBox({ tasks, setTasks }) {
   const handleAddTask = () => {
     const newTask = {
       name: inputValue,
-      tic: false
+      tick: false
     };
     setTasks([...tasks, newTask]);
     setInputValue('');
     inputRef.current.focus();
   };
 
-  const areAllTasksTicked = tasks.length > 0 && tasks.every((task) => task.tic);
+  const areAllTasksTicked = tasks.length > 0 && tasks.every((task) => task.tick);
 
   const handleConfirmationModalClose = () => {
     setShowConfirmationModal(false);
@@ -46,7 +46,7 @@ function TopBox({ tasks, setTasks }) {
 
   return (
     <div className='content-topBox'>
-      <input ref={inputRef} value={inputValue} onChange={handleInputChange} />
+      <input ref={inputRef} onChange={handleInputChange} />
       <Button
         className='content-topBox__add-Button'
         onClick={handleAddTask}
@@ -57,7 +57,7 @@ function TopBox({ tasks, setTasks }) {
       <Button
         className='content-topBox__allDelete-Button'
         onClick={handleDeleteSelectionsPrompt}
-        disabled={tasks.length === 0 || (!areAllTasksTicked && !tasks.some((task) => task.tic))}
+        disabled={tasks.length === 0 || (!areAllTasksTicked && !tasks.some((task) => task.tick))}
       >
         Delete Selections
       </Button>

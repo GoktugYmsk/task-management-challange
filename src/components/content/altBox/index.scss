@@ -1,8 +1,30 @@
 .content__altBox {
     display: flex;
+    align-items: center !important;
+    justify-content: center !important;
     width: 600px;
     height: auto;
     border-radius: 10px;
+
+    input {
+        position: relative;
+        cursor: pointer;
+        top: 5px;
+        left: 20px;
+        width: 25px;
+        height: 25px;
+    }
+
+    .content__altBox-body {
+        input {
+            position: relative;
+            cursor: pointer;
+            top: 15px;
+            left: 20px;
+            width: 25px;
+            height: 25px;
+        }
+    }
 
 
     .container__altBox-actions {

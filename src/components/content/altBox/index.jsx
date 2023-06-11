@@ -6,18 +6,18 @@ import { Switch, Space, Modal } from 'antd';
 import './index.scss';
 
 function AltBox({ tasks, setTasks }) {
-  const initialTasks = [
-    { name: 'Task 1', done: true, tic: false },
-    { name: 'Task 2', done: false, tic: false },
-    { name: 'Task 3', done: true, tic: false }
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [selectedTaskIndex, setSelectedTaskIndex] = useState(null);
+
+  const defaultTasks = [
+    { name: 'Task 1', done: true, tick: false },
+    { name: 'Task 2', done: false, tick: false },
+    { name: 'Task 3', done: true, tick: false }
   ];
 
   useState(() => {
-    setTasks(initialTasks);
+    setTasks(defaultTasks);
   }, []);
-
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [selectedTaskIndex, setSelectedTaskIndex] = useState(null);
 
   const handleTaskDoneChange = (index, checked) => {
     const updatedTasks = [...tasks];
@@ -27,7 +27,7 @@ function AltBox({ tasks, setTasks }) {
 
   const handleTaskOption = (index, ticked) => {
     const optionTasks = [...tasks];
-    optionTasks[index] = { ...optionTasks[index], tic: ticked };
+    optionTasks[index] = { ...optionTasks[index], tick: ticked };
     setTasks(optionTasks);
   };
 
@@ -38,10 +38,10 @@ function AltBox({ tasks, setTasks }) {
     setSelectedTaskIndex(null);
   };
 
-  const areAllTasksSelected = tasks.length > 0 && tasks.every((task) => task.tic);
+  const areAllTasksSelected = tasks.length > 0 && tasks.every((task) => task.tick);
 
   const handleToggleAllTasks = () => {
-    const allToggle = tasks.map((task) => ({ ...task, tic: !areAllTasksSelected }));
+    const allToggle = tasks.map((task) => ({ ...task, tick: !areAllTasksSelected }));
     setTasks(allToggle);
   };
 
@@ -79,7 +79,7 @@ function AltBox({ tasks, setTasks }) {
               <td>
                 <input
                   type='checkbox'
-                  checked={task.tic}
+                  checked={task.tick}
                   onChange={(e) => handleTaskOption(index, e.target.checked)}
                 />
               </td>
