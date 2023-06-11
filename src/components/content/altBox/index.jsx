@@ -5,12 +5,16 @@ import { Switch, Space, Modal } from 'antd';
 
 import './index.scss';
 
-function AltBox() {
-  const [tasks, setTasks] = useState([
-    { name: 'vero ipsam praesentium', done: true },
-    { name: 'aliquam expedita eos', done: false },
-    { name: 'velit illum quo', done: true },
-  ]);
+function AltBox({ tasks, setTasks }) {
+  const initialTasks = [
+    { name: 'Task 1', done: true, tic: false },
+    { name: 'Task 2', done: false, tic: false },
+    { name: 'Task 3', done: true, tic: false }
+  ];
+
+  useState(() => {
+    setTasks(initialTasks);
+  }, []);
 
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedTaskIndex, setSelectedTaskIndex] = useState(null);
@@ -23,7 +27,7 @@ function AltBox() {
 
   const handleTaskOption = (index, ticked) => {
     const optionTasks = [...tasks];
-    optionTasks[index] = { ...optionTasks[index], done: ticked };
+    optionTasks[index] = { ...optionTasks[index], tic: ticked };
     setTasks(optionTasks);
   };
 
@@ -34,11 +38,11 @@ function AltBox() {
     setSelectedTaskIndex(null);
   };
 
-  const areAllTasksSelected = tasks.length > 0 && tasks.every((task) => task.done);
+  const areAllTasksSelected = tasks.length > 0 && tasks.every((task) => task.tic);
 
   const handleToggleAllTasks = () => {
-    const updatedTasks = tasks.map((task) => ({ ...task, done: !areAllTasksSelected }));
-    setTasks(updatedTasks);
+    const allToggle = tasks.map((task) => ({ ...task, tic: !areAllTasksSelected }));
+    setTasks(allToggle);
   };
 
   const handleDeleteConfirmation = (index) => {
@@ -76,7 +80,7 @@ function AltBox() {
                 <input
                   type='checkbox'
                   checked={task.tic}
-                  onChange={(e) => handleTaskOption(index, e.target.ticked)}
+                  onChange={(e) => handleTaskOption(index, e.target.checked)}
                 />
               </td>
               <td className={`content__altBox-message ${task.done ? 'completed-task' : ''}`}>{task.name}</td>
