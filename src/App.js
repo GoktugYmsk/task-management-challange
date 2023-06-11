@@ -10,12 +10,12 @@ function App() {
   return (
     <div className="App">
       <Row>
-        <Col md={12} lg={12}>
+        <Col sm={12} md={12} lg={12}>
           <Header />
         </Col>
       </Row>
       <Row>
-        <Col md={8} lg={8} > 
+        <Col sm={12} md={8} lg={8} > 
           <Content />
         </Col>
         <Col>

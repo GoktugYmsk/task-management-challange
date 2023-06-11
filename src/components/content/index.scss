@@ -20,3 +20,14 @@
 .strikethrough {
   text-decoration: line-through;
 }
+
+@media screen and (max-width: 540px) {
+  .content-container {
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .content-container__pagination{
+    margin-right: 150px;
+  }
+}

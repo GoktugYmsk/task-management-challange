@@ -73,7 +73,7 @@ function AltBox({ tasks, setTasks }) {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className='content__altBox-body' >
           {tasks.map((task, index) => (
             <tr key={index}>
               <td>
@@ -86,7 +86,7 @@ function AltBox({ tasks, setTasks }) {
               <td className={`content__altBox-message ${task.done ? 'completed-task' : ''}`}>{task.name}</td>
               <td className='container__altBox-actions'>
                 <Space direction='vertical'>
-                  <Switch
+                  <Switch className='container__altBox-switch'
                     checkedChildren='Done'
                     unCheckedChildren='Incomplete'
                     checked={task.done}
@@ -98,7 +98,7 @@ function AltBox({ tasks, setTasks }) {
                   variant='outline-danger'
                   onClick={() => handleDeleteConfirmation(index)}
                 >
-                  Delete
+                  <p>Delete</p>
                 </Button>{' '}
               </td>
             </tr>

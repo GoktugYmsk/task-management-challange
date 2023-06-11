@@ -4,3 +4,9 @@
     height: 100vh;
     padding: 20px;
 }
+@media screen and (max-width:540px){
+    .App{
+        display: flex;
+        align-items: center;
+    }
+}

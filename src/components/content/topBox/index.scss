@@ -13,5 +13,33 @@
 
     .content-topBox__allDelete-Button {
         width: 200px;
+
+        &:hover{
+            background: red;
+        }
+    }
+}
+
+@media screen and (max-width:540px) {
+    .content-topBox {
+        width: 350px;
+        margin-left: 100px;
+
+        input {
+            width: 175px;
+            height: 40px;
+        }
+
+        .content-topBox__add-Button {
+            width: 75px;
+            height: 40px;
+            font-size: 10px !important;
+        }
+
+        .content-topBox__allDelete-Button {
+            width: 100px;
+            height: 40px;
+            font-size: 10px !important;
+        }
     }
 }

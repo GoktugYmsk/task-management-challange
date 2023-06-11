@@ -47,3 +47,21 @@
     }
 
 }
+
+@media screen and (max-width:540px) {
+    .sideBar-container{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .sideBar-container__information{
+            display: flex;
+            align-items: flex-start;
+        }
+        .sideBar-container__libraries{
+            display: flex;
+            margin-left: 30px;
+            align-items: flex-start !important;
+            flex-direction: column;
+        }
+    }
+}

@@ -17,3 +17,40 @@
 .completed-task {
     text-decoration: line-through !important;
 }
+
+@media screen and (max-width:540px) {
+    .content__altBox {
+        display: flex;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 350px;
+        margin-left: 100px;
+    }
+
+    .content-delete__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+
+        p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+    }
+
+    .container__altBox-switch {
+        width: 60px;
+    }
+
+    .content__altBox-body {
+        .container__altBox-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 220px !important;
+        }
+    }
+}
