@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { Switch, Space, Modal } from 'antd';
+import { Row, Col } from 'react-bootstrap';
 
 import './index.scss';
 
@@ -62,60 +63,64 @@ function AltBox({ tasks, setTasks }) {
   };
 
   return (
-    <div className='content__altBox'>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>
-              <input type='checkbox' checked={areAllTasksSelected} onChange={handleToggleAllTasks} readOnly />
-            </th>
-            <th>Task Name</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody className='content__altBox-body' >
-          {tasks.map((task, index) => (
-            <tr key={index}>
-              <td>
-                <input
-                  type='checkbox'
-                  checked={task.tick}
-                  onChange={(e) => handleTaskOption(index, e.target.checked)}
-                />
-              </td>
-              <td className={`content__altBox-message ${task.done ? 'completed-task' : ''}`}>{task.name}</td>
-              <td className='container__altBox-actions'>
-                <Space direction='vertical'>
-                  <Switch className='container__altBox-switch'
-                    checkedChildren='Done'
-                    unCheckedChildren='Incomplete'
-                    checked={task.done}
-                    onChange={(checked) => handleTaskDoneChange(index, checked)}
-                  />
-                </Space>
-                <Button
-                  className='content-delete__button'
-                  variant='outline-danger'
-                  onClick={() => handleDeleteConfirmation(index)}
-                >
-                  <p>Delete</p>
-                </Button>{' '}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-      <Modal
-        title='Confirmation'
-        visible={showDeleteModal}
-        onCancel={handleDeleteCancel}
-        onOk={handleDeleteConfirm}
-        cancelButtonProps={{ className: 'delete-modal-cancel-button' }}
-        okButtonProps={{ className: 'delete-modal-ok-button' }}
-      >
-        <p>{selectedTaskIndex !== null ? `Are you sure you want to delete "${tasks[selectedTaskIndex]?.name}"?` : ''}</p>
-      </Modal>
-    </div>
+    <Row>
+      <Col sm={8} md={12} lg={12} >
+        <div className='content__altBox'>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th  >
+                  <input type='checkbox' checked={areAllTasksSelected} onChange={handleToggleAllTasks} readOnly />
+                </th>
+                <th>Task Name</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody className='content__altBox-body' >
+              {tasks.map((task, index) => (
+                <tr key={index}>
+                  <td>
+                    <input
+                      type='checkbox'
+                      checked={task.tick}
+                      onChange={(e) => handleTaskOption(index, e.target.checked)}
+                    />
+                  </td>
+                  <td className={`content__altBox-message ${task.done ? 'completed-task' : ''}`}>{task.name}</td>
+                  <td className='container__altBox-actions'>
+                    <Space direction='vertical'>
+                      <Switch className='container__altBox-switch'
+                        checkedChildren='Done'
+                        unCheckedChildren='Incomplete'
+                        checked={task.done}
+                        onChange={(checked) => handleTaskDoneChange(index, checked)}
+                      />
+                    </Space>
+                    <Button
+                      className='content-delete__button'
+                      variant='outline-danger'
+                      onClick={() => handleDeleteConfirmation(index)}
+                    >
+                      <p>Delete</p>
+                    </Button>{' '}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+          <Modal
+            title='Confirmation'
+            visible={showDeleteModal}
+            onCancel={handleDeleteCancel}
+            onOk={handleDeleteConfirm}
+            cancelButtonProps={{ className: 'delete-modal-cancel-button' }}
+            okButtonProps={{ className: 'delete-modal-ok-button' }}
+          >
+            <p>{selectedTaskIndex !== null ? `Are you sure you want to delete "${tasks[selectedTaskIndex]?.name}"?` : ''}</p>
+          </Modal>
+        </div>
+      </Col>
+    </Row>
   );
 }
 
