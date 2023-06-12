@@ -49,45 +49,37 @@ function TopBox({ tasks, setTasks }) {
     <Row>
       <Col sm={12} md={12} lg={12} >
         <div className='content-topBox'>
-          <Row>
-            <Col sm={6} md={6} lg={6} >
-              <input ref={inputRef} value={inputValue} onChange={handleInputChange} />
-            </Col>
-            <Col sm={2} md={2} lg={2} >
-              <Button
-                className='content-topBox__add-Button'
-                onClick={handleAddTask}
-                disabled={!inputValue}
-              >
-                Add Task
+          <input ref={inputRef} value={inputValue} onChange={handleInputChange} />
+          <Button
+            className='content-topBox__add-Button'
+            onClick={handleAddTask}
+            disabled={!inputValue}
+          >
+            Add Task
+          </Button>
+          <Button
+            className='content-topBox__allDelete-Button'
+            onClick={deleteSelections}
+            disabled={tasks.length === 0 || (!tasksTicked && !tasks.some((task) => task.tick))}
+          >
+            Delete Selections
+          </Button>
+          <Modal show={showModal} onHide={handleModalClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Confirmation</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Are you sure you want to delete the selected tasks?</Modal.Body>
+            <Modal.Footer>
+              <Button variant='secondary' onClick={handleModalClose}>
+                Cancel
               </Button>
-            </Col>
-            <Col sm={4} md={4} lg={4} >
-            <Button
-              className='content-topBox__allDelete-Button'
-              onClick={deleteSelections}
-              disabled={tasks.length === 0 || (!tasksTicked && !tasks.some((task) => task.tick))}
-            >
-              Delete Selections
-            </Button>
-          </Col>
-        </Row>
-        <Modal show={showModal} onHide={handleModalClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Confirmation</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Are you sure you want to delete the selected tasks?</Modal.Body>
-          <Modal.Footer>
-            <Button variant='secondary' onClick={handleModalClose}>
-              Cancel
-            </Button>
-            <Button variant='danger' onClick={handleDeleteSelectionsConfirm}>
-              Delete
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </div>
-    </Col>
+              <Button variant='danger' onClick={handleDeleteSelectionsConfirm}>
+                Delete
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </div>
+      </Col>
     </Row >
   );
 }

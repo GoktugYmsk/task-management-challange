@@ -26,11 +26,10 @@
 @media screen and (max-width:540px) {
     .content-topBox {
         display: flex;
-        flex-direction: none !important;
+        flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        width: 380px;
-        margin-left: 120px;
+        width: 100%;
 
         input {
             width: 93%;
@@ -42,6 +41,7 @@
     }
 
     .content-topBox__add-Button {
+        width: 300px !important;
         height: 40px;
         font-size: 10px !important;
         position: relative;
@@ -49,9 +49,39 @@
     }
 
     .content-topBox__allDelete-Button {
+        width: 300px !important;
+        height: 40px;
+        font-size: 10px !important;
+        margin-left: 400px !important;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .content-topBox {
+        display: flex;
+        align-items: center !important;
+        width: 100%;
+
+        input {
+            width: 250px;
+            height: 40px;
+            margin-left: 90px;
+        }
+
+    }
+
+    .content-topBox__add-Button {
+        width: 80px !important;
+        height: 40px;
+        font-size: 10px !important;
+        margin-left: 10px !important;
+    }
+
+    .content-topBox__allDelete-Button {
+        width: 100px !important;
         height: 40px;
         font-size: 10px !important;
         position: relative;
-        left: 140px;
+        right: 30px;
     }
 }

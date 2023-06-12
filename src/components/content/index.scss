@@ -26,8 +26,26 @@
     display: flex;
     align-items: center !important;
     justify-content: center !important;
+    height: 100vh !important;
+    width: 100% !important;
   }
-  .content-container__pagination{
+
+  .content-container__pagination {
+    margin-right: 150px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content-container {
+    display: flex;
+    align-items: center !important;
+    flex-direction: column;
+    justify-content: center !important;
+    height: 100vh !important;
+    width: 100%;
+  }
+
+  .content-container__pagination {
     margin-right: 150px;
   }
 }
