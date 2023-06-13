@@ -5,7 +5,7 @@ import './index.scss'
 function Header() {
   return (
     <div className='header-container' >
-      <h2>Mini App (Task Management)</h2>
+      <h2><strong>Mini App (Task Management)</strong></h2>
     </div>
   )
 }

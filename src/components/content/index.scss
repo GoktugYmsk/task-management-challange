@@ -26,8 +26,8 @@
     display: flex;
     align-items: center !important;
     justify-content: center !important;
+    max-width: 390px;
     height: 100vh !important;
-    width: 100% !important;
   }
 
   .content-container__pagination {
@@ -42,7 +42,7 @@
     flex-direction: column;
     justify-content: center !important;
     height: 100vh !important;
-    width: 100%;
+    width: 100%  !important;
   }
 
   .content-container__pagination {

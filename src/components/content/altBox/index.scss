@@ -46,7 +46,7 @@
         align-items: center !important;
         justify-content: center !important;
         width: 100% !important;
-        background: red;
+        max-width: 350px !important;
 
         input {
             margin-right: 60px;
@@ -79,52 +79,5 @@
             justify-content: center;
             width: 220px !important;
         }
-    }
-}
-
-@media screen and (max-width:768px) {
-    .content__altBox {
-        display: flex;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 100% !important;
-
-        input {
-            margin-right: 60px;
-        }
-    }
-
-    .content-delete__button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-
-        p {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-        }
-    }
-
-    .container__altBox-switch {
-        width: 60px;
-    }
-
-    .content__altBox-body {
-        .container__altBox-actions {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 220px !important;
-        }
-    }
-}
-
-@media screen and (min-width:992px) {
-    .content__altBox {
-        width: 800px !important;
     }
 }

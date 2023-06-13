@@ -5,16 +5,14 @@
 
     input {
         border-radius: 10px;
-        width: 400px;
+        width: 440px;
     }
 
     .content-topBox__add-Button {
-        margin-right: 40px;
         width: 150px;
     }
 
     .content-topBox__allDelete-Button {
-        margin-left: 10px;
         width: 200px;
 
         &:hover {
@@ -29,59 +27,34 @@
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
+        max-width: 350px;
         width: 100%;
 
         input {
-            width: 93%;
-            height: 40px;
             position: relative;
-            top: 40px;
+            top: 80px;
+            right: 100px;
+            width: 150px !important;
+            height: 40px !important;
         }
 
     }
 
     .content-topBox__add-Button {
-        width: 300px !important;
-        height: 40px;
-        font-size: 10px !important;
         position: relative;
-        top: 40px;
-    }
-
-    .content-topBox__allDelete-Button {
-        width: 300px !important;
-        height: 40px;
-        font-size: 10px !important;
-        margin-left: 400px !important;
-    }
-}
-
-@media screen and (max-width:768px) {
-    .content-topBox {
-        display: flex;
-        align-items: center !important;
-        width: 100%;
-
-        input {
-            width: 250px;
-            height: 40px;
-            margin-left: 90px;
-        }
-
-    }
-
-    .content-topBox__add-Button {
+        top: 50px;
+        left: 25px;
         width: 80px !important;
-        height: 40px;
+        height: 30px;
         font-size: 10px !important;
-        margin-left: 10px !important;
     }
 
     .content-topBox__allDelete-Button {
-        width: 100px !important;
-        height: 40px;
-        font-size: 10px !important;
         position: relative;
-        right: 30px;
+        top: 20px;
+        left: 130px;
+        width: 120px !important;
+        height: 30px;
+        font-size: 10px !important;
     }
 }
